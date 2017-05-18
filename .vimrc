@@ -19,12 +19,21 @@ Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
 
+filetype on
+filetype indent on
 filetype plugin indent on
+filetype plugin on
 
-syntax on
+syntax enable
 set number
 set encoding=utf-8
 set laststatus=2
+set smartindent
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
 set nowrap
 set magic
 
@@ -33,7 +42,7 @@ colorscheme Tomorrow-Night
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "1"}
+let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
