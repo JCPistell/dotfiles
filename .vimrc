@@ -15,6 +15,7 @@ Plugin 'jpalardy/vim-slime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ervandew/supertab'
 Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()
@@ -23,6 +24,8 @@ filetype on
 filetype indent on
 filetype plugin indent on
 filetype plugin on
+
+set omnifunc=syntaxcomplete#Complete
 
 syntax enable
 set number
@@ -41,8 +44,10 @@ colorscheme Tomorrow-Night
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
+let g:SuperTabDefaultCompletionType = "context"
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
+let g:slime_dont_ask_default = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
