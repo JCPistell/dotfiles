@@ -17,6 +17,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'derekwyatt/vim-scala'
 
 call vundle#end()
 
@@ -40,7 +41,7 @@ set expandtab
 set nowrap
 set magic
 
-colorscheme Tomorrow-Night 
+colorscheme zenburn 
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
