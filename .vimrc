@@ -17,6 +17,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'derekwyatt/vim-scala'
 
 call vundle#end()
 
