@@ -1,7 +1,0 @@
-[user]
-	email = colin.c.pistell.-nd@abc.com
-	name = Colin Pistell
-[core]
-    editor = vim
-	excludefile = /Users/pistj006/.gitignore_global
-	excludesfile = /Users/pistj006/.gitignore_global
