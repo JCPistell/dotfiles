@@ -34,14 +34,21 @@ set encoding=utf-8
 set laststatus=2
 set smartindent
 set autoindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set nowrap
 set magic
 
 colorscheme zenburn
+
+set hlsearch 
+hi Search ctermfg=DarkGrey 
+hi Search ctermbg=Cyan
+noremap <F4> :set hlsearch! hlsearch?<CR>
+
+set pastetoggle=<F3>
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
