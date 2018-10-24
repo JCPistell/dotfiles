@@ -50,6 +50,9 @@ noremap <F4> :set hlsearch! hlsearch?<CR>
 
 set pastetoggle=<F3>
 
+vnoremap <C-c> :w !pbcopy<CR><CR>
+noremap <C-v> :r !pbpaste<CR><CR>
+
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:SuperTabDefaultCompletionType = "context"
