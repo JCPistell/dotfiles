@@ -48,6 +48,7 @@ hi Search ctermfg=DarkGrey
 hi Search ctermbg=Cyan
 noremap <F4> :set hlsearch! hlsearch?<CR>
 
+set backspace=indent,eol,start
 set pastetoggle=<F3>
 
 let g:airline_powerline_fonts = 1
