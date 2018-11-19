@@ -17,6 +17,13 @@ set -o vi
 bind -m vi-insert "\C-l":clear-screen
 
 # parse git branch using git_ps1 and set prompt
+
+green=$(tput setaf 2)
+blue=$(tput setaf 4)
+yellow=$(tput setaf 3)
+cyan=$(tput setaf 6)
+reset=$(tput sgr0)
+
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 source $(brew --prefix)/etc/bash_completion
 source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
@@ -28,7 +35,7 @@ GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWUNTRACKEDFILES=1
 
-PROMPT_COMMAND='__git_ps1 "\[\033[0;32m\]\u@\h\[\033[0m\] \[\033[0;34m\]\w\[\033[0m\] " "\n\[\033[0;36m\]$\[\033[0m\] " "\[\033[0;33m\][\[\033[0m\]%s\[\033[0;33m\]]\[\033[0m\]"'
+PROMPT_COMMAND='__git_ps1 "\[$green\]\u@\h\[$reset\] \[$blue\]\w\[$reset\] " "\n\[$cyan\]$\[$reset\] " "\[$yellow\][\[$reset\]%s\[$yellow\]]\[\$reset\]"'
 
 # setting python and go env variables and path profiles
 export PATH=/usr/local/bin:/usr/local/sbin:/$HOME/bin:/usr/local/opt/python/libexec/bin:$PATH
