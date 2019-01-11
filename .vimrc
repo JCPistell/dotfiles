@@ -18,7 +18,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 
@@ -41,7 +40,6 @@ set nowrap
 set magic
 
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=79
-autocmd FileType python map <Leader>s :call Flake8()<CR>
 
 let python_highlight_all=1
 
