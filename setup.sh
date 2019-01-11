@@ -34,3 +34,8 @@ ln -s $DIR/.gitignore_global ~/.gitignore_global
 # Set up vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+# install base python packages
+pip install virtualenv
+pip install virtualenvwrapper
+pip install flake8
