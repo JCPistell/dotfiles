@@ -16,8 +16,11 @@ fi
 
 # Install brew packages
 
+brew tap homebrew/cask-fonts
+brew cask install java
+
 brew install asciinema awscli bash-completion git go kubernetes-cli node openssl pandoc parquet-tools perl postgresql python r ruby sbt scala sqlite tmux tree unixodbc vim watch
-brew cask install docker dropbox font-source-code-pro google-cloud-sdk iterm2 java mactex minikube snowflake-snowsql spectacle spotify steam sublime-text transmission virtualbox vagrant vlc
+brew cask install docker dropbox font-source-code-pro google-cloud-sdk iterm2 mactex minikube snowflake-snowsql spectacle spotify steam sublime-text transmission virtualbox vagrant vlc
 
 
 # Set up symlinks
