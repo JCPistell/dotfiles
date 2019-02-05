@@ -49,6 +49,7 @@ colorscheme zenburn
 set hlsearch 
 hi Search ctermfg=DarkGrey 
 hi Search ctermbg=Cyan
+hi MatchParen cterm=bold ctermfg=Cyan ctermbg=Grey
 noremap <F4> :set hlsearch! hlsearch?<CR>
 
 set backspace=indent,eol,start
