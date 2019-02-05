@@ -10,14 +10,15 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Easymotion'
 Plugin 'jpalardy/vim-slime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ervandew/supertab'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'Vimjas/vim-python-pep8-indent'
 
 call vundle#end()
 
@@ -25,8 +26,6 @@ filetype on
 filetype indent on
 filetype plugin indent on
 filetype plugin on
-
-set omnifunc=syntaxcomplete#Complete
 
 syntax enable
 set number
@@ -41,11 +40,16 @@ set expandtab
 set nowrap
 set magic
 
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=100
+
+let python_highlight_all=1
+
 colorscheme zenburn
 
 set hlsearch 
 hi Search ctermfg=DarkGrey 
 hi Search ctermbg=Cyan
+hi MatchParen cterm=bold ctermfg=Cyan ctermbg=Grey
 noremap <F4> :set hlsearch! hlsearch?<CR>
 
 set backspace=indent,eol,start
@@ -57,9 +61,31 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 let g:slime_dont_ask_default = 1
+let g:slime_python_ipython = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoTo<CR>
+
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path']
+
+let g:ycm_global_ycm_extra_conf = '~/.global_extra_conf.py'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 map <Leader>f :NERDTreeToggle<CR>
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 

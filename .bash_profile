@@ -54,13 +54,18 @@ GIT_PS1_SHOWCOLORHINTS=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWUNTRACKEDFILES=1
 
-PROMPT_COMMAND='__git_ps1 "\[$green\]\u@\h\[$reset\] \[$blue\]\w\[$reset\] " "\n\[$cyan\]$\[$reset\] " "\[$yellow\][\[$reset\]%s\[$yellow\]]\[\$reset\]"'
+PROMPT_COMMAND='__git_ps1 "\[$green\]\u@\h\[$reset\] \[$blue\]\w\[$reset\] " "\n$(add_venv_info)\[$cyan\]$\[$reset\] " "\[$yellow\][\[$reset\]%s\[$yellow\]]\[\$reset\]"'
 
 # setting python and go env variables and path profiles
 export PATH=/usr/local/bin:/usr/local/sbin:/$HOME/bin:/usr/local/opt/python/libexec/bin:$PATH
 export GOPATH=$HOME/Projects/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+source /usr/local/bin/virtualenvwrapper.sh
 
 # added by Snowflake SnowSQL installer v1.0
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
