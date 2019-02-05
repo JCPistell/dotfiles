@@ -63,6 +63,7 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 source /usr/local/bin/virtualenvwrapper.sh
 

@@ -18,6 +18,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'Vimjas/vim-python-pep8-indent'
 
 call vundle#end()
 
@@ -39,7 +40,7 @@ set expandtab
 set nowrap
 set magic
 
-autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=79
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=100
 
 let python_highlight_all=1
 
@@ -59,6 +60,7 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 let g:slime_dont_ask_default = 1
+let g:slime_python_ipython = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
