@@ -26,10 +26,11 @@ brew cask install docker dropbox font-source-code-pro google-cloud-sdk iterm2 ma
 # Set up symlinks
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
-ln -s $DIR/.bash_profile ~/.bash_profile
-ln -s $DIR/.tmux.conf ~/.tmux.conf
-ln -s $DIR/.vimrc ~/.vimrc
-ln -s $DIR/.gitignore_global ~/.gitignore_global
+ln -s $DIR/bashrc ~/.bashrc
+ln -s $DIR/tmux.conf ~/.tmux.conf
+ln -s $DIR/vimrc ~/.vimrc
+ln -s $DIR/gitignore_global ~/.gitignore_global
+ln -s $Dir/spacemacs ~/.spacemacs
 
 # Set up vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
