@@ -27,8 +27,15 @@ filetype indent on
 filetype plugin indent on
 filetype plugin on
 
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 syntax enable
-set number
 set encoding=utf-8
 set laststatus=2
 set smartindent
