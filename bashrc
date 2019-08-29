@@ -16,6 +16,7 @@ set -o vi
 bind -m vi-insert "\C-l":clear-screen
 
 # parse git branch using git_ps1 and set prompt
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 add_venv_info () {
     if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ] ; then
@@ -56,17 +57,23 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 
 PROMPT_COMMAND='__git_ps1 "\[$green\]\u@\h\[$reset\] \[$blue\]\w\[$reset\] " "\n$(add_venv_info)\[$cyan\]$\[$reset\] " "\[$yellow\][\[$reset\]%s\[$yellow\]]\[\$reset\]"'
 
+# setting up pyenv
+export PYENV_ROOT=$HOME/.pyenv
+
 # setting python and go env variables and path profiles
-export PATH=/usr/local/bin:/usr/local/sbin:/$HOME/bin:/usr/local/opt/python/libexec/bin:/usr/local/opt/ruby/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/$HOME/bin:$PATH
+export PATH=$PYENV_ROOT/bin:$PATH
 export GOPATH=$HOME/Projects/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
 export JAVA_HOME=$(/usr/libexec/java_home)
-
-source /usr/local/bin/virtualenvwrapper.sh
+export HOMEBREW_EDITOR=vim
 
 # added by Snowflake SnowSQL installer v1.0
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 
+# initializing pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
