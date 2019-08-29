@@ -70,3 +70,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 # added by Snowflake SnowSQL installer v1.0
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 
+# adding latex path
+export PATH=/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH
