@@ -71,6 +71,9 @@ export PROJECT_HOME=$HOME/Projects
 export JAVA_HOME=$(/usr/libexec/java_home)
 export HOMEBREW_EDITOR=vim
 
+# adding latex path
+export PATH=/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH
+
 # added by Snowflake SnowSQL installer v1.0
 export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 

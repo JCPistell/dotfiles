@@ -9,16 +9,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jpalardy/vim-slime'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'jeetsukumaran/vim-indentwise'
 
 call vundle#end()
 
@@ -27,8 +26,15 @@ filetype indent on
 filetype plugin indent on
 filetype plugin on
 
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 syntax enable
-set number
 set encoding=utf-8
 set laststatus=2
 set smartindent
@@ -41,6 +47,7 @@ set nowrap
 set magic
 
 autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=100
+autocmd FileType markdown setlocal textwidth=120
 
 let python_highlight_all=1
 
