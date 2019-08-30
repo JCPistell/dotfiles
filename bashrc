@@ -5,7 +5,8 @@ HISTFILESIZE=1000000
 alias ll='ls -lh'
 alias grep='grep --color=auto'
 alias gh='history | grep'
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 
 # set color options
 export CLICOLOR=1
@@ -61,7 +62,7 @@ PROMPT_COMMAND='__git_ps1 "\[$green\]\u@\h\[$reset\] \[$blue\]\w\[$reset\] " "\n
 export PYENV_ROOT=$HOME/.pyenv
 
 # setting python and go env variables and path profiles
-export PATH=/usr/local/bin:/usr/local/sbin:/$HOME/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 export PATH=$PYENV_ROOT/bin:$PATH
 export GOPATH=$HOME/Projects/golang
 export GOROOT=/usr/local/opt/go/libexec
