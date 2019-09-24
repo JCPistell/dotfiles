@@ -39,8 +39,7 @@ autocmd FileType markdown setlocal textwidth=120
 
 let python_highlight_all=1
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-set termguicolors
+" set termguicolors
 colorscheme zenburn
 
 set hlsearch
@@ -54,6 +53,8 @@ set pastetoggle=<F3>
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
+
+set fillchars+=vert:\
 
 map <Leader>f :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
