@@ -81,6 +81,7 @@ export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 # initializing pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+pyenv global 3.7.4 2.7.14
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
