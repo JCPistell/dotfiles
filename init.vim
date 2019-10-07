@@ -13,6 +13,8 @@ Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'kassio/neoterm'
+Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
@@ -115,3 +117,18 @@ let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
 " golang settings
 let g:go_auto_type_info = 1
 au FileType go nmap <F12> <Plug>(go-def-split)
+
+" neoterm settings
+let g:neoterm_autoscroll = '1'
+let g:neoterm_size = 25
+let g:neoterm_default_mod='belowright'
+command! -nargs=+ TT Topen | T <args>
+nmap gx <Plug>(neoterm-repl-send)
+xmap gx <Plug>(neoterm-repl-send)
+nnoremap ` :TT
+
+" vim slime settings
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
+let g:slime_dont_ask_default = 1
+let g:slime_python_ipython = 1
