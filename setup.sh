@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Install xcode command line tools
 echo "Looking for existing xcode installation..."
 xcode-select -p > /dev/null
@@ -27,7 +29,7 @@ cd ~/Projects
 
 # Clone the dotfiles repo
 echo "Cloning repo"
-git clone git@github.com:JCPistell/dotfiles.git
+git clone https://github.com/JCPistell/dotfiles.git
 DIR="~/Projects/dotfiles"
 
 # Install brew packages
