@@ -1,12 +1,15 @@
+# setup
 tap "aws/tap"
-tap "d12frosted/emacs-plus"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-brew "apache-spark"
-brew "apache-zeppelin"
+
+# have to install java first
+cask "adoptopenjdk"
+
+# everything else
 brew "sqlite"
 brew "python"
 brew "asciinema"
@@ -44,7 +47,8 @@ brew "unixodbc"
 brew "vim"
 brew "watch"
 brew "aws/tap/aws-sam-cli"
-brew "d12frosted/emacs-plus/emacs-plus"
+
+# other casks
 cask "basictex"
 cask "docker"
 cask "dropbox"
@@ -55,7 +59,6 @@ cask "iterm2"
 cask "keybase"
 cask "snowflake-snowsql"
 cask "spotify"
-cask "squirrelsql"
 cask "steam"
 cask "sublime-text"
 cask "vagrant"

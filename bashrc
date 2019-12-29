@@ -70,7 +70,8 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
 export JAVA_HOME=$(/usr/libexec/java_home)
-export HOMEBREW_EDITOR=vim
+export HOMEBREW_EDITOR=nvim
+export EDITOR=nvim
 
 # adding latex path
 export PATH=/usr/local/texlive/2019basic/bin/x86_64-darwin:$PATH
@@ -85,3 +86,6 @@ pyenv global 3.7.4 2.7.14
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

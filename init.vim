@@ -3,12 +3,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -36,7 +38,7 @@ set expandtab
 set nowrap
 set magic
 
-autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=100
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=125
 autocmd FileType markdown setlocal textwidth=120
 
 let python_highlight_all=1
@@ -58,8 +60,14 @@ let g:airline#extensions#branch#enabled = 1
 
 set fillchars+=vert:\
 
+"NERDTree config
 map <Leader>f :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" NERDCommenter config
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
 
 " fuzzy finding with fzf
 nnoremap <C-p> :<C-u>FZF<CR>
@@ -88,13 +96,21 @@ let g:deoplete#sources#go#gocode_binary = '$GOPATH/bin/gocode'
 
 " linting with ale
 let g:ale_linters = {
-      \ 'python': ['flake8']
+      \ 'python': ['flake8'],
+      \ 'javascript': ['eslint'],
       \}
+
+" autofix with ale
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \}
+
 
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_filetype_changed = 1
+let g:ale_fix_on_save = 1
 
 let g:ale_sign_error = '✕'
 let g:ale_sign_warning = '⚠'
