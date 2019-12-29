@@ -27,10 +27,10 @@ mkdir -p ~/Projects
 mkdir -p ~/Scripts
 cd ~/Projects
 
-# Clone the dotfiles repo
+# Clone the dotfiles repo if not already there
 echo "Cloning repo"
-git clone https://github.com/JCPistell/dotfiles.git
-DIR="~/Projects/dotfiles"
+[ ! -d "./dotfiles" ] && git clone https://github.com/JCPistell/dotfiles.git || echo "repo already exists"
+DIR=$(pwd)/dotfiles
 
 # Install brew packages
 echo "Installing brew objects"
