@@ -40,14 +40,14 @@ brew bundle --file=$DIR/Brewfile
 echo "Symlinking dotfiles"
 mkdir -p ~/.config/nvim
 
-ln -s $DIR/bash_profile ~/.bash_profile
-ln -s $DIR/bashrc ~/.bashrc
-ln -s $DIR/tmux.conf ~/.tmux.conf
-ln -s $DIR/vimrc ~/.vimrc
-ln -s $DIR/gitignore_global ~/.gitignore_global
-ln -s $DIR/spacemacs ~/.spacemacs
-ln -s $DIR/flake8 ~/.config/flake8
-ln -s $DIR/init.vim ~/.config/nvim/init.vim
+ln -nfs $DIR/bash_profile ~/.bash_profile
+ln -nfs $DIR/bashrc ~/.bashrc
+ln -nfs $DIR/tmux.conf ~/.tmux.conf
+ln -nfs $DIR/vimrc ~/.vimrc
+ln -nfs $DIR/gitignore_global ~/.gitignore_global
+ln -nfs $DIR/spacemacs ~/.spacemacs
+ln -nfs $DIR/flake8 ~/.config/flake8
+ln -nfs $DIR/init.vim ~/.config/nvim/init.vim
 
 # Set up virtualenvs
 echo "Setting up Python virtualenvs"
