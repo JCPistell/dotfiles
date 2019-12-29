@@ -34,7 +34,7 @@ DIR="~/Projects/dotfiles"
 
 # Install brew packages
 echo "Installing brew objects"
-brew bundle
+brew bundle --file=$DIR/Brewfile
 
 # Set up symlinks
 echo "Symlinking dotfiles"
