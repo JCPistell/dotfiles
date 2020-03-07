@@ -17,6 +17,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'kassio/neoterm'
 Plug 'jpalardy/vim-slime'
+Plug 'janko/vim-test'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
 
@@ -148,3 +151,12 @@ let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": ":.1"}
 let g:slime_dont_ask_default = 1
 let g:slime_python_ipython = 1
+
+" vim-test settings
+nnoremap <Leader>tf :TestFile<cr>
+nnoremap <Leader>tn :TestNearest<cr>
+nnoremap <Leader>ts :TestSuite<cr>
+
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
