@@ -20,6 +20,7 @@ Plug 'jpalardy/vim-slime'
 Plug 'janko/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 
@@ -62,6 +63,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 
 set fillchars+=vert:\
+set signcolumn=yes
 
 "NERDTree config
 map <Leader>f :NERDTreeToggle<CR>
@@ -109,7 +111,7 @@ let g:ale_fixers = {
       \}
 
 
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 1
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_filetype_changed = 1
@@ -132,6 +134,12 @@ let g:ale_python_flake8_use_global = 1
 " setting the python executable
 let g:python_host_prog = expand('~/.pyenv/versions/neovim2/bin/python')
 let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+
+" jedi setup
+" disable autocompletion (we use deoplete)
+let g:jedi#completions_enabled = 0
+" open go-to function in split
+let g:jedi#use_splits_not_buffers = 'right'
 
 " golang settings
 let g:go_auto_type_info = 1
@@ -159,4 +167,3 @@ nnoremap <Leader>ts :TestSuite<cr>
 
 " set filetypes as typescript.tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-
