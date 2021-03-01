@@ -7,20 +7,22 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 Plug 'kassio/neoterm'
 Plug 'jpalardy/vim-slime'
 Plug 'janko/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'davidhalter/jedi-vim'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -94,10 +96,18 @@ let g:fzf_colors =
 " code completion with deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-let g:deoplete#sources#go#gocode_binary = '$GOPATH/bin/gocode'
+let g:deoplete#sources#go = ['vim-go']
+let g:deoplete#sources#go#gocode_binary = '/dev/null'
+call deoplete#custom#option('smart_case', v:true)
+call deoplete#custom#option('omni_patterns', {
+\ 'go': '[^. *\t]\.\w*',
+\})
+
+" code help popup via echodoc
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
 
 " linting with ale
 let g:ale_linters = {
@@ -142,6 +152,8 @@ let g:jedi#completions_enabled = 0
 let g:jedi#use_splits_not_buffers = 'right'
 
 " golang settings
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 let g:go_auto_type_info = 1
 au FileType go nmap <F12> <Plug>(go-def-split)
 
