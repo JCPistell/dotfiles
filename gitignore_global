@@ -40,3 +40,8 @@ Thumbs.db
 __pycache__/
 .python-version
 .vscode/
+
+# GCP Specific #
+################
+jcpistell-testspace-*.json
+opsbae-enablement-*.json

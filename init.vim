@@ -23,6 +23,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'davidhalter/jedi-vim'
 Plug 'hashivim/vim-terraform'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'godlygeek/tabular'
 
 call plug#end()
 
@@ -44,8 +46,9 @@ set expandtab
 set nowrap
 set magic
 
-autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=125
-autocmd FileType markdown setlocal textwidth=120
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
+autocmd FileType markdown setlocal textwidth=0 wrap linebreak nolist
 
 let python_highlight_all=1
 
